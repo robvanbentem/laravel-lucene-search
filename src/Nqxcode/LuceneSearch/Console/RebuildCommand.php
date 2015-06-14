@@ -52,7 +52,7 @@ class RebuildCommand extends Command
             }
             $this->info('Operation is fully complete!');
         } else {
-            $this->error('No models found in config.php file..');
+            $this->error('No models found in config file..');
         }
     }
 }
