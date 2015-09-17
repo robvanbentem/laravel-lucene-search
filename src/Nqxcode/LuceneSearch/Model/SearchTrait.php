@@ -15,6 +15,7 @@ trait SearchTrait
     {
         self::saved(
             function ($model) {
+                if(method_exists($model, 'prepareForIndexing')) $model->{'prepareForIndexing'}();
                 App::offsetGet('search')->update($model);
             }
         );

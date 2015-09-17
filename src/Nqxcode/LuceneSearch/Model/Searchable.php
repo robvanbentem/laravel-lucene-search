@@ -13,4 +13,11 @@ interface Searchable
      * @return boolean
      */
     public function isSearchable();
+
+    /**
+     * Let the model know it is about to get indexed
+     *
+     * @return void
+     */
+    public function prepareForIndexing();
 }

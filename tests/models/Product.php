@@ -29,4 +29,11 @@ class Product extends Model implements Searchable
     {
         return ['optional_attribute1' => "optional_value1"];
     }
+
+    public function prepareForIndexing()
+    {
+        // Intentionally left blank
+    }
+
+
 }

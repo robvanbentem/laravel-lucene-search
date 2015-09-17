@@ -36,11 +36,14 @@ class RebuildCommand extends Command
 
                 $count = count($all);
 
+                $prepare = method_exists($modelRepository, 'prepareForIndexing') ? true : false;
+
                 if ($count > 0) {
                     /** @var ProgressBar $progress */
                     $progress = new ProgressBar($this->getOutput(), $count);
 
                     foreach ($all as $model) {
+                        if($prepare) $model->{'prepareForIndexing'}();
                         $search->update($model);
                         $progress->advance();
                     }
